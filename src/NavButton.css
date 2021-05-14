@@ -3,3 +3,7 @@
   color: var(--color-light);
   border: 2px solid var(--color-medium);
 }
+
+.NavButton--active {
+  background: goldenrod;
+}
