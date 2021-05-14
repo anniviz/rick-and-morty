@@ -2,11 +2,11 @@ import './Nav.css'
 import NavButton from './NavButton'
 
 export default function Nav() {
-  const navItems = ['characters', 'episodes', 'locations']
+  const navItems = ['home', 'characters', 'locations']
   return (
     <nav className="Nav">
       {navItems.map(navItem => (
-        <NavButton navItem={navItem}></NavButton>
+        <NavButton key={navItem} navItem={navItem}></NavButton>
       ))}
     </nav>
   )
