@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
+import Card from './Card'
 
 export default function App() {
   const [characters, setCharacters] = useState([])
@@ -8,10 +9,16 @@ export default function App() {
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
-      .then(resBody => setCharacters([...characters, resBody.results]))
+      .then(resBody => setCharacters([...characters, ...resBody.results]))
   }, [url])
 
   console.log(characters)
 
-  return <div className="App"></div>
+  return (
+    <div className="App">
+      {characters.map(({ id, name }) => (
+        <Card key={id} name={name}></Card>
+      ))}
+    </div>
+  )
 }
