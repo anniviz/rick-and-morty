@@ -1,0 +1,5 @@
+.Nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: var(--color-light);
+}

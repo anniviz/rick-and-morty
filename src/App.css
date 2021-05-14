@@ -1,8 +1,19 @@
 .App {
   width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 60px auto 60px;
+  background: black;
+}
+
+.App__card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  background: black;
+  overflow-y: scroll;
+}
+
+.App__location-container {
+  overflow-y: scroll;
 }
