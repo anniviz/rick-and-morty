@@ -16,13 +16,25 @@ export default function App() {
       .then(resBody => setCharacters([...resBody.results]))
   }, [urlCharacters])
 
-  const urlLocations = 'https://rickandmortyapi.com/api/location'
+  const [urlLocations, setUrlLocations] = useState(
+    'https://rickandmortyapi.com/api/location'
+  )
   const [locations, setLocations] = useState([])
+  const [pageCounter, setPageCounter] = useState(1)
   useEffect(() => {
     fetch(urlLocations)
       .then(res => res.json())
-      .then(resBody => setLocations([...resBody.results]))
+      .then(resBody => {
+        setLocations([...locations, ...resBody.results])
+        pageCounter < resBody.info.pages && setPageCounter(pageCounter + 1)
+      })
   }, [urlLocations])
+
+  useEffect(() => {
+    setUrlLocations(
+      `https://rickandmortyapi.com/api/location?page=${pageCounter}`
+    )
+  }, [pageCounter])
 
   const urlEpisodes = 'https://rickandmortyapi.com/api/episode'
   const [episodes, setEpisodes] = useState([])
@@ -53,15 +65,15 @@ export default function App() {
       )}
       {activePage === 'locations' && (
         <ul className="App__location-container">
-          {locations.map(({ name }) => (
-            <LocationListItem key={name} name={name} />
+          {locations.map(({ name, id }) => (
+            <LocationListItem key={id} name={name} />
           ))}
         </ul>
       )}
       {activePage === 'episodes' && (
         <ul className="App__location-container">
-          {episodes.map(({ name }) => (
-            <LocationListItem key={name} name={name} />
+          {episodes.map(({ name, id }) => (
+            <LocationListItem key={id} name={name} />
           ))}
         </ul>
       )}
