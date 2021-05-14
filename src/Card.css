@@ -1,0 +1,11 @@
+.Card {
+  width: 300px;
+  height: 400px;
+  border-radius: 12px;
+  background: #a6eee6ff;
+  text-align: center;
+}
+
+.Card__img {
+  width: 80%;
+}
