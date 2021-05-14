@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
+import './_variables.css'
 import Card from './Card'
 import Header from './Header'
+import Nav from './Nav'
 
 export default function App() {
   const [characters, setCharacters] = useState([])
@@ -15,16 +17,19 @@ export default function App() {
 
   return (
     <div className="App">
-      <Header></Header>
-      {characters.map(({ id, name, image, species, status }) => (
-        <Card
-          key={id}
-          name={name}
-          image={image}
-          species={species}
-          status={status}
-        ></Card>
-      ))}
+      <Header />
+      <div className="App__card-container">
+        {characters.map(({ id, name, image, species, status }) => (
+          <Card
+            key={id}
+            name={name}
+            image={image}
+            species={species}
+            status={status}
+          ></Card>
+        ))}
+      </div>
+      <Nav />
     </div>
   )
 }
