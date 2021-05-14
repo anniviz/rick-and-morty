@@ -15,7 +15,7 @@ export default function Card({ name, image, species, status }) {
       {showContent && (
         <ul>
           <li>species: {species}</li>
-          <li>status: {status}`</li>
+          <li>status: {status}</li>
         </ul>
       )}
     </section>
