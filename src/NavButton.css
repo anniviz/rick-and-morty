@@ -1,2 +1,5 @@
 .NavButton {
+  background: black;
+  color: var(--color-light);
+  border: 2px solid var(--color-medium);
 }
