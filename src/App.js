@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
 import Card from './Card'
+import Header from './Header'
 
 export default function App() {
   const [characters, setCharacters] = useState([])
@@ -12,10 +13,9 @@ export default function App() {
       .then(resBody => setCharacters([...characters, ...resBody.results]))
   }, [url])
 
-  console.log(characters)
-
   return (
     <div className="App">
+      <Header></Header>
       {characters.map(({ id, name, image, species, status }) => (
         <Card
           key={id}

@@ -1,5 +1,11 @@
 .Card {
-  width: 500px;
-  height: 800px;
-  border: 2px solid black;
+  width: 300px;
+  height: 400px;
+  border-radius: 12px;
+  background: blanchedalmond;
+  text-align: center;
+}
+
+.Card__img {
+  width: 80%;
 }
