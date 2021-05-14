@@ -54,14 +54,14 @@ export default function App() {
       {activePage === 'locations' && (
         <ul className="App__location-container">
           {locations.map(({ name }) => (
-            <LocationListItem name={name} />
+            <LocationListItem key={name} name={name} />
           ))}
         </ul>
       )}
       {activePage === 'episodes' && (
         <ul className="App__location-container">
           {episodes.map(({ name }) => (
-            <LocationListItem name={name} />
+            <LocationListItem key={name} name={name} />
           ))}
         </ul>
       )}
