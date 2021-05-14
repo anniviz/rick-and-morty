@@ -5,11 +5,7 @@ export default function Card({ name, image, species, status }) {
   const [showContent, setShowContent] = useState(false)
 
   return (
-    <section
-      className="Card"
-      onMouseEnter={() => setShowContent(true)}
-      onMouseLeave={() => setShowContent(false)}
-    >
+    <section className="Card" onClick={handleClick}>
       {!showContent && (
         <>
           <h2>{name}</h2>
@@ -24,4 +20,8 @@ export default function Card({ name, image, species, status }) {
       )}
     </section>
   )
+
+  function handleClick() {
+    setShowContent(!showContent)
+  }
 }
