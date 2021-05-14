@@ -16,8 +16,14 @@ export default function App() {
 
   return (
     <div className="App">
-      {characters.map(({ id, name }) => (
-        <Card key={id} name={name}></Card>
+      {characters.map(({ id, name, image, species, status }) => (
+        <Card
+          key={id}
+          name={name}
+          image={image}
+          species={species}
+          status={status}
+        ></Card>
       ))}
     </div>
   )
