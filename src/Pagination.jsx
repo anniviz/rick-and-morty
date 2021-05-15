@@ -13,10 +13,7 @@ export default function Pagination({
             ? 'Pagination__button Pagination__button--active'
             : 'Pagination__button'
         }
-        onClick={() =>
-          Number(currentPage) !== 1 &&
-          setActivePaginationPage(Number(currentPage) - 1)
-        }
+        onClick={handlePreviousClick}
       >
         previous
       </button>
@@ -27,25 +24,22 @@ export default function Pagination({
             ? 'Pagination__button Pagination__button--active'
             : 'Pagination__button'
         }
-        onClick={() =>
-          Number(currentPage) !== Number(totalPages) &&
-          setActivePaginationPage(Number(currentPage) + 1)
-        }
+        onClick={handleNextClick}
       >
         next
       </button>
     </nav>
   )
 
-  //   function handlePreviousClick() {
-  //     if (Number(currentPage) !== 1) {
-  //       setActivePage(Number(currentPage) - 1)
-  //     }
-  //   }
+  function handlePreviousClick() {
+    if (Number(currentPage) !== 1) {
+      setActivePaginationPage(Number(currentPage) - 1)
+    }
+  }
 
-  //   function handleNextClick() {
-  //     if (Number(currentPage) !== Number(totalPages)) {
-  //       setActivePage(Number(currentPage) + 1)
-  //     }
-  //   }
+  function handleNextClick() {
+    if (Number(currentPage) !== Number(totalPages)) {
+      setActivePaginationPage(Number(currentPage) + 1)
+    }
+  }
 }
