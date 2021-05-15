@@ -11,11 +11,16 @@ import Pagination from './Pagination'
 export default function App() {
   const urlCharacters = 'https://rickandmortyapi.com/api/character'
   const [characters, setCharacters] = useState([])
+  const [characterPages, setCharacterPages] = useState('')
+  const [activeCharacterPage, setActiveCharacterPage] = useState('1')
   useEffect(() => {
-    fetch(urlCharacters)
+    fetch(`${urlCharacters}?page=${activeCharacterPage}`)
       .then(res => res.json())
-      .then(resBody => setCharacters([...resBody.results]))
-  }, [urlCharacters])
+      .then(resBody => {
+        setCharacters([...resBody.results])
+        setCharacterPages(resBody.info.pages)
+      })
+  }, [activeCharacterPage])
 
   const urlLocations = 'https://rickandmortyapi.com/api/location'
   const [locations, setLocations] = useState([])
@@ -32,11 +37,16 @@ export default function App() {
 
   const urlEpisodes = 'https://rickandmortyapi.com/api/episode'
   const [episodes, setEpisodes] = useState([])
+  const [episodePages, setEpisodePages] = useState('')
+  const [activeEpisodePage, setActiveEpisodePage] = useState('1')
   useEffect(() => {
-    fetch(urlEpisodes)
+    fetch(`${urlEpisodes}?page=${activeEpisodePage}`)
       .then(res => res.json())
-      .then(resBody => setEpisodes([...resBody.results]))
-  }, [urlEpisodes])
+      .then(resBody => {
+        setEpisodes([...resBody.results])
+        setEpisodePages(resBody.info.pages)
+      })
+  }, [activeEpisodePage])
 
   const navItems = ['characters', 'locations', 'episodes']
   const [activePage, setActivePage] = useState('characters')
@@ -55,7 +65,11 @@ export default function App() {
               status={status}
             ></Card>
           ))}
-          <Pagination></Pagination>
+          <Pagination
+            currentPage={activeCharacterPage}
+            totalPages={characterPages}
+            setActivePaginationPage={setActiveCharacterPage}
+          />
         </div>
       )}
       {activePage === 'locations' && (
@@ -69,7 +83,7 @@ export default function App() {
             currentPage={activeLocationPage}
             totalPages={locationPages}
             setActivePaginationPage={setActiveLocationPage}
-          ></Pagination>
+          />
         </div>
       )}
       {activePage === 'episodes' && (
@@ -79,7 +93,11 @@ export default function App() {
               <LocationListItem key={name} name={name} />
             ))}
           </ul>
-          <Pagination></Pagination>
+          <Pagination
+            currentPage={activeEpisodePage}
+            totalPages={episodePages}
+            setActivePaginationPage={setActiveEpisodePage}
+          />
         </div>
       )}
       <Nav
