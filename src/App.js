@@ -6,6 +6,7 @@ import Card from './Card'
 import Header from './Header'
 import Nav from './Nav'
 import LocationListItem from './LocationListItem'
+import Pagination from './Pagination'
 
 export default function App() {
   const urlCharacters = 'https://rickandmortyapi.com/api/character'
@@ -49,6 +50,7 @@ export default function App() {
               status={status}
             ></Card>
           ))}
+          <Pagination></Pagination>
         </div>
       )}
       {activePage === 'locations' && (

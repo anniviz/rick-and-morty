@@ -1,0 +1,13 @@
+.Pagination {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  color: var(--color-light);
+  margin-bottom: 20px;
+}
+
+.Pagination__button {
+  background: black;
+  color: var(--color-light);
+  border: 2px solid var(--color-medium);
+}
