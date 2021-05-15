@@ -8,6 +8,12 @@
 
 .Pagination__button {
   background: black;
+  color: grey;
+  border: 2px solid gray;
+}
+
+.Pagination__button--active {
+  background: black;
   color: var(--color-light);
   border: 2px solid var(--color-medium);
 }

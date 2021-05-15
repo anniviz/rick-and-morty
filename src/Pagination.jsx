@@ -1,10 +1,18 @@
 import './Pagination.css'
 
-export default function Pagination() {
+export default function Pagination({ currentPage, totalPages }) {
   return (
     <nav className="Pagination">
-      <button className="Pagination__button">previous</button>
-      Pagenumbers
+      <button
+        className={
+          currentPage !== 1
+            ? 'Pagination__button Pagination__button'
+            : 'Pagination__button'
+        }
+      >
+        previous
+      </button>
+      {currentPage}/{totalPages}
       <button className="Pagination__button">next</button>
     </nav>
   )
