@@ -19,11 +19,16 @@ export default function App() {
 
   const urlLocations = 'https://rickandmortyapi.com/api/location'
   const [locations, setLocations] = useState([])
+  const [locationPages, setLocationPages] = useState('')
+  const [activeLocationPage, setActiveLocationPage] = useState('1')
   useEffect(() => {
-    fetch(urlLocations)
+    fetch(`${urlLocations}?page=${activeLocationPage}`)
       .then(res => res.json())
-      .then(resBody => setLocations([...resBody.results]))
-  }, [urlLocations])
+      .then(resBody => {
+        setLocations([...resBody.results])
+        setLocationPages(resBody.info.pages)
+      })
+  }, [activeLocationPage])
 
   const urlEpisodes = 'https://rickandmortyapi.com/api/episode'
   const [episodes, setEpisodes] = useState([])
@@ -60,7 +65,11 @@ export default function App() {
               <LocationListItem key={name} name={name} />
             ))}
           </ul>
-          <Pagination></Pagination>
+          <Pagination
+            currentPage={activeLocationPage}
+            totalPages={locationPages}
+            setActivePaginationPage={setActiveLocationPage}
+          ></Pagination>
         </div>
       )}
       {activePage === 'episodes' && (
