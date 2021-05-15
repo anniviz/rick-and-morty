@@ -54,18 +54,24 @@ export default function App() {
         </div>
       )}
       {activePage === 'locations' && (
-        <ul className="App__location-container">
-          {locations.map(({ name }) => (
-            <LocationListItem key={name} name={name} />
-          ))}
-        </ul>
+        <div className="content-container">
+          <ul className="App__location-container">
+            {locations.map(({ name }) => (
+              <LocationListItem key={name} name={name} />
+            ))}
+          </ul>
+          <Pagination></Pagination>
+        </div>
       )}
       {activePage === 'episodes' && (
-        <ul className="App__location-container">
-          {episodes.map(({ name }) => (
-            <LocationListItem key={name} name={name} />
-          ))}
-        </ul>
+        <div className="content-container">
+          <ul className="App__location-container">
+            {episodes.map(({ name }) => (
+              <LocationListItem key={name} name={name} />
+            ))}
+          </ul>
+          <Pagination></Pagination>
+        </div>
       )}
       <Nav
         activePage={activePage}
