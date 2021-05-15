@@ -30,11 +30,11 @@ export default function App() {
       })
   }, [urlLocations])
 
-  useEffect(() => {
-    setUrlLocations(
-      `https://rickandmortyapi.com/api/location?page=${pageCounter}`
-    )
-  }, [pageCounter])
+  // useEffect(() => {
+  //   setUrlLocations(
+  //     `https://rickandmortyapi.com/api/location?page=${pageCounter}`
+  //   )
+  // }, [pageCounter])
 
   const urlEpisodes = 'https://rickandmortyapi.com/api/episode'
   const [episodes, setEpisodes] = useState([])
