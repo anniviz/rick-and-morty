@@ -4,8 +4,21 @@
   border-radius: 12px;
   background: var(--color-light);
   text-align: center;
+  position: relative;
 }
 
 .Card__img {
   width: 80%;
+}
+
+.Card__bookmark {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-size: 2rem;
+  color: palegoldenrod;
 }

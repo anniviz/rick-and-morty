@@ -10,6 +10,7 @@ export default function Card({ name, image, species, status }) {
         <>
           <h2>{name}</h2>
           <img src={image} alt="" className="Card__img" />
+          <button className="Card__bookmark">★</button>
         </>
       )}
       {showContent && (
