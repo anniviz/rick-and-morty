@@ -6,6 +6,13 @@
   background: black;
 }
 
+.content-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .App__card-container {
   display: flex;
   flex-direction: column;
