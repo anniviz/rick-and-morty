@@ -1,7 +1,14 @@
 import { useState } from 'react'
 import './Card.css'
 
-export default function Card({ name, image, species, status }) {
+export default function Card({
+  name,
+  image,
+  species,
+  status,
+  bookmarkedCharacters,
+  id,
+}) {
   const [showContent, setShowContent] = useState(false)
 
   return (
@@ -10,7 +17,9 @@ export default function Card({ name, image, species, status }) {
         <>
           <h2>{name}</h2>
           <img src={image} alt="" className="Card__img" />
-          <button className="Card__bookmark">★</button>
+          <button className="Card__bookmark" onClick={handleBookmarkClick}>
+            ★
+          </button>
         </>
       )}
       {showContent && (
@@ -24,5 +33,13 @@ export default function Card({ name, image, species, status }) {
 
   function handleClick() {
     setShowContent(!showContent)
+  }
+
+  function handleBookmarkClick() {
+    console.log(id)
+    // localStorage.setItem(
+    //   'bookmarkedCharacters',
+    //   JSON.stringify(bookmarkedCharacters)
+    // )
   }
 }

@@ -13,6 +13,8 @@ export default function App() {
   const [characters, setCharacters] = useState([])
   const [characterPages, setCharacterPages] = useState('')
   const [activeCharacterPage, setActiveCharacterPage] = useState('1')
+  const bookmarkedCharacters =
+    JSON.parse(localStorage.getItem('bookmarkedCharacters')) ?? []
   useEffect(() => {
     fetch(`${urlCharacters}?page=${activeCharacterPage}`)
       .then(res => res.json())
@@ -63,6 +65,8 @@ export default function App() {
               image={image}
               species={species}
               status={status}
+              bookmarkedCharacters={bookmarkedCharacters}
+              id={id}
             ></Card>
           ))}
           <Pagination
