@@ -89,8 +89,8 @@ export default function App() {
       {activePage === 'episodes' && (
         <div className="content-container">
           <ul className="App__location-container">
-            {episodes.map(({ name }) => (
-              <LocationListItem key={name} name={name} />
+            {episodes.map(({ name, characters }) => (
+              <LocationListItem key={name} name={name} residents={characters} />
             ))}
           </ul>
           <Pagination
