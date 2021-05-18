@@ -4,6 +4,7 @@
   border-radius: 12px;
   background: var(--color-light);
   text-align: center;
+  color: black;
 }
 
 .Card__img {

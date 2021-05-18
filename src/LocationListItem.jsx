@@ -14,8 +14,10 @@ export default function LocationListItem({ name, residents }) {
   }, [])
 
   return (
-    <li className="LocationListItem" onClick={handleListItemClick}>
-      {name}
+    <>
+      <li className="LocationListItem" onClick={handleListItemClick}>
+        {name}
+      </li>
       {showCharacters &&
         locationCharacters.map(({ id, name, image, species, status }) => (
           <Card
@@ -26,10 +28,11 @@ export default function LocationListItem({ name, residents }) {
             status={status}
           ></Card>
         ))}
-    </li>
+    </>
   )
 
   function handleListItemClick() {
     setShowCharacters(!showCharacters)
+    console.log('click')
   }
 }
