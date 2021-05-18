@@ -11,7 +11,7 @@ export default function LocationListItem({ name, residents }) {
       fetch(character).then(res => res.json())
     )
     Promise.all(promises).then(res => setLocationCharacters([...res]))
-  }, [])
+  }, [residents])
 
   return (
     <>
