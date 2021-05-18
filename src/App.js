@@ -75,8 +75,8 @@ export default function App() {
       {activePage === 'locations' && (
         <div className="content-container">
           <ul className="App__location-container">
-            {locations.map(({ name }) => (
-              <LocationListItem key={name} name={name} />
+            {locations.map(({ name, id, residents }) => (
+              <LocationListItem key={id} name={name} residents={residents} />
             ))}
           </ul>
           <Pagination
